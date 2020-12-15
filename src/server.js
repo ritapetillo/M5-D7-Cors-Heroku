@@ -3,6 +3,8 @@ const cors = require("cors")
 const listEndpoints = require("express-list-endpoints")
 
 const booksRoutes = require("./services/books")
+const commentsRoutes = require("./services/comments");
+
 
 const {
   notFoundHandler,
@@ -37,6 +39,8 @@ server.use(cors(corsOptions)) // CROSS ORIGIN RESOURCE SHARING
 //ROUTES
 
 server.use("/books", booksRoutes)
+server.use("/comments", commentsRoutes);
+
 
 // ERROR HANDLERS
 server.use(badRequestHandler)

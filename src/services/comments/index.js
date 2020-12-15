@@ -20,7 +20,7 @@ commentsRouter.get("/:commentID", async (req, res, next) => {
   try {
     const comments = await getComments();
     const comment = await comments.find(
-      (comm) => comm  ._id === req.params.commentID
+      (comm) => comm._id === req.params.commentID
     );
     res.send(comment);
   } catch (error) {
@@ -151,7 +151,7 @@ commentsRouter.delete("/:commentID", async (req, res, next) => {
         (comment) => comment._id !== req.params.commentID
       );
 
-      await writeBooks(filteredComments);
+      await writeComments(filteredComments);
       res.status(204).send();
     } else {
       const error = new Error();
